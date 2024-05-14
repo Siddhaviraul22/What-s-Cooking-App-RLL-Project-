@@ -1,0 +1,119 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 459
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++-------------------------+
+| Database                |
++-------------------------+
+| crud_db                 |
+| ecom_code_with_projects |
+| information_schema      |
+| mysql                   |
+| performance_schema      |
+| sys                     |
+| whats_cooking_db        |
++-------------------------+
+7 rows in set (0.01 sec)
+
+mysql> use whats_cooking_db;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_whats_cooking_db |
++----------------------------+
+| hibernate_sequence         |
+| profile_detail             |
+| receipes_detail            |
+| review_detail              |
+| user                       |
++----------------------------+
+5 rows in set (0.01 sec)
+
+mysql> select * from user;
++---------+-----------------+--------------------------------------------------------------+------+
+| user_id | email           | password                                                     | role |
++---------+-----------------+--------------------------------------------------------------+------+
+|       1 | user@gmail.com  | $2a$10$81d0P/8AfNYS8WMALeyxhubdtFoTEoSWxfxaLvTj/L5WA66R5P026 |    0 |
+|       2 | admin@gmail.com | $2a$10$BZN8I63dnJW49c8p1Aj0Lu7d4Q.97GlLAnUwO7sxS6WaoBoxkKUS. |    1 |
+|       4 | user1           | $2a$10$9WLxJyhbD7pruPxkeLRsFO3AVEFrLx9QBmKD3soVpKIGjppFRxxN6 |    0 |
+|       7 | user2           | $2a$10$tbUGgi0yGD8ZRG58NrpjsOgeOi0G2soJh1H0CJsNwk.JA8Id9bdH2 |    0 |
++---------+-----------------+--------------------------------------------------------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from receipes_detail;
++----+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------------------------+--------+
+| id | category  | cooking_steps
+                                                                      | created_date | description
+                                                       | image_url
+        | ingredients
+                          | is_active            | name                                       | userid |
++----+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------------------------+--------+
+|  2 | STARTER   | Step 1: Slice vegetables thinly and mix with chickpea flour and spices to form a thick batter. Step 2: Deep fry the vegetable batter until golden brown and crispy.                                            | NULL         | Crispy fritters made with assorted vegetables coated in a spiced chickpea flour batter.                                     | https://www.harighotra.co.uk/images/recipes/hero/vegetable-pakora-hero.jpg                                 | Mixed vegetables (such as potatoes, onions, cauliflower, spinach), chickpea flour, spices (like cumin, coriander, turmeric), salt, oil for frying.                          | 0x01                 | Vegetable Pakoras                          |      2 |
+|  3 | STARTER   | Step 1: Roast papadums until crisp. Step 2: Prepare a topping mixture with chopped onions, tomatoes, chili, coriander, and spices. Step 3: Spread the topping mixture over the papadums and serve immediately. | NULL         | Crisp papadums topped with a spicy and tangy mixture of onions, tomatoes, chili, and spices.                                | https://images.news18.com/ibnkhabar/uploads/2021/07/masala-papad.jpg
+        | Papadums, onions, tomatoes, green chili, coriander leaves, chaat masala, lemon juice.
+                          | 0x01                 | Masala Papad                               |      2 |
+|  5 | STARTER   | Prepare lentil dumplings by soaking, grinding, and frying, soak in water, squeeze out water and soak in beaten yogurt, garnish with chutneys and spices before serving.                                        | NULL         | Soft lentil dumplings soaked in creamy yogurt and topped with tangy tamarind chutney and spicy masala.                      | https://static.toiimg.com/thumb/55432577.cms?imgsize=240828&width=800&height=800
+        | Urad dal (black gram lentils), yogurt, tamarind chutney, green chutney, chaat masala, cumin powder, salt.
+                          | 0x01                 | Dahi Vada                                  |      2 |
+|  6 | BREAKFAST | Spread dosa batter on a hot griddle, add potato masala filling, fold dosa, and cook until golden and crisp.
+                                                                      | NULL         | Crisp and savory South Indian crepes made from fermented rice and lentil batter, filled with a spiced potato mixture.       | https://static.toiimg.com/thumb/54289752.cms?imgsize=495844&width=800&height=800
+        |  Dosa batter (rice and urad dal), potatoes, onions, mustard seeds, curry leaves, turmeric powder, green chilies, coriander leaves.
+                          | 0x01                 | Masala Dosa                                |      2 |
+|  7 | BREAKFAST | Roast semolina until fragrant, sauté vegetables and tempering, add water and cook semolina until soft and fluffy.
+                                                                      | NULL         | A comforting South Indian dish made with semolina (rava) cooked with vegetables, spices, and tempering.                     | https://myfoodstory.com/wp-content/uploads/2022/11/Vegetable-Upma-3-500x375.jpg
+        | Semolina, mixed vegetables (carrots, peas, beans), mustard seeds, curry leaves, green chilies, ginger, cashews, ghee.
+                          | 0x01                 | Upma                                       |      2 |
+|  8 | BREAKFAST |  Rinse and soften poha, sauté onions, potatoes, and peanuts, add spices, mix with softened poha, and cook until heated through.
+                                                                      | NULL         | Flattened rice cooked with onions, potatoes, peanuts, and spices, a popular breakfast dish from Maharashtra.                | https://www.vegrecipesofindia.com/wp-content/uploads/2022/09/poha-recipe-2.jpg
+        | Flattened rice (poha), onions, potatoes, peanuts, mustard seeds, curry leaves, turmeric powder, green chilies, coriander leaves.
+                          | 0x01                 | Poha                                       |      2 |
+|  9 | LUNCH     | Cook kidney beans with spices and tomatoes until creamy, serve with steamed basmati rice.                                                                                                                      | NULL         | Creamy kidney bean curry served with steamed basmati rice, a classic North Indian comfort food.                             | https://www.sinamontales.com/dotcord/uploads/2016/06/of-sunday-afternoons-and-rajma-chawal.1024x1024-4.jpg |  Kidney beans, onions, tomatoes, ginger-garlic paste, garam masala, cumin seeds, coriander powder, rice.
+                          | 0x01                 | Rajma Chawal (Kidney Bean Curry with Rice) |      2 |
+| 10 | LUNCH     | Prepare roti dough, roll and cook on a hot griddle, prepare paneer butter masala by cooking tomatoes and spices, add paneer and cream, serve hot with roti.                                                    | NULL         | Soft Indian flatbread (roti) served with a rich and creamy tomato-based paneer curry.                                       | https://blog.pureindianfoods.com/wp-content/uploads/2019/05/butter-paneer.jpg
+        | Whole wheat flour, paneer, tomatoes, onions, cream, ginger-garlic paste, garam masala, fenugreek leaves, coriander leaves.
+                          | 0x01                 | Roti with Paneer Butter Masala             |      2 |
+| 11 | LUNCH     | Sauté onions, add ginger-garlic paste and tomatoes, cook until soft, add vegetables and spices, simmer until vegetables are tender, serve with chapati.                                                        | NULL         | A flavorful medley of mixed vegetables cooked in a spiced gravy, served with whole wheat chapatis.                          | https://www.spicingyourlife.com/wp-content/uploads/2016/03/MixedVegetableKurmawithoutTomato.jpg            | Assorted vegetables (carrots, peas, beans, cauliflower, bell peppers), onions, tomatoes, ginger-garlic paste, turmeric powder, chili powder, cumin seeds, coriander powder. | 0x01                 | Mixed Vegetable Curry with Chapati         |      2 |
+| 12 | DINNER    | Marinate chicken, cook rice, layer rice and chicken with fried onions and mint leaves, cook on low heat until flavors meld together.                                                                           | NULL         | Fragrant basmati rice layered with marinated chicken pieces, aromatic spices, and caramelized onions, cooked to perfection. | https://www.pavaniskitchen.com/wp-content/uploads/2021/02/chbiryani.jpg
+        | Chicken, basmati rice, yogurt, onions, tomatoes, ginger-garlic paste, biryani spices, mint leaves, coriander leaves.
+                          | 0x01                 | Chicken Biryani                            |      2 |
+| 13 | DINNER    |  Prepare coconut milk-based curry, add fish pieces, simmer until fish is cooked, serve hot with steamed rice.
+                                                                      | NULL         | Tender fish pieces simmered in a tangy and spicy coconut milk-based curry, served with steamed rice.                        | https://nitudididotcom.files.wordpress.com/2011/08/fish-thai-curry.jpg
+        | Fish fillets, coconut milk, onions, tomatoes, ginger, garlic, curry leaves, chili powder, turmeric powder, coriander powder.
+                          | 0x01                 | Fish Curry with Steamed Rice               |      2 |
+| 14 | DINNER    | Marinate lamb in yogurt and spices, cook onions until golden, add lamb and cook until tender, garnish with saffron before serving.                                                                             | NULL         | A rich and aromatic Kashmiri lamb curry cooked with a blend of spices and yogurt, perfect for a comforting dinner.          | https://www.yummytummyaarthi.com/wp-content/uploads/2014/10/1-13.jpg
+        | Lamb pieces, yogurt, onions, tomatoes, ginger-garlic paste, garam masala, fennel seeds, dry ginger powder, saffron.
+                          | 0x01                 | Mutton Rogan Josh                          |      2 |
++----+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------------------------+--------+
+12 rows in set (0.01 sec)
+
+mysql> select * from profile_detail;
++----+----------------------------------+------------+---------------------+-----------------+-------------+--------+
+| id | address                          | contact    | created_date        | email           | full_name   | userid |
++----+----------------------------------+------------+---------------------+-----------------+-------------+--------+
+|  1 | #4542, Shivaji road, N R Mohalla | 9611218018 | 2024-03-26 15:08:55 | user@gmail.com  | Shreyas M J |      1 |
+|  2 | India                            | 9876543210 | 2024-03-26 15:42:38 | user1@gmail.com | User1       |      4 |
++----+----------------------------------+------------+---------------------+-----------------+-------------+--------+
+2 rows in set (0.01 sec)
+
+mysql> select * from review_detail;
++----+-------------+---------------------+------------+--------+---------+
+| id | comment     | created_date        | receipe_id | status | user_id |
++----+-------------+---------------------+------------+--------+---------+
+|  3 | Nice recipe | 2024-03-26 15:08:13 |          2 | LIKE   |       1 |
+|  5 | Nice        | 2024-03-26 15:41:27 |         12 | LIKE   |       4 |
+|  6 | Nice        | 2024-03-26 15:41:41 |          9 | LIKE   |       4 |
+|  8 | Awesome     | 2024-03-26 15:44:57 |          5 | LIKE   |       7 |
++----+-------------+---------------------+------------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql>
